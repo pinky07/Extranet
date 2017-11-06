@@ -1,0 +1,42 @@
+plugins {
+    id "com.moowork.node" version "1.2.0"
+}
+
+apply plugin: 'com.moowork.node'
+apply plugin: 'eclipse-wtp'
+
+node {
+    version = '6.11.1'
+    download = true
+}
+
+task cleanUI(type: Delete) {
+    delete 'build'
+    delete '../extranet-webapp/src/main/resources/public'
+}
+
+task cleanPublic(type: Delete) {
+    delete '../extranet-webapp/src/main/resources/public'
+}
+
+task npmBuild(dependsOn: [npm_install, npm_update], type: NpmTask) {
+    args = ['run', 'build']
+}
+
+task npmRun(dependsOn: [npm_install, npm_update], type: NpmTask) {
+    args = ['run', 'build']
+}
+
+task buildUI(dependsOn: npmRun) << {
+    copy {
+        from "build"
+        into '../extranet-webapp/src/main/resources/public'
+    }
+}
+
+task compileUI(dependsOn: npmBuild) << {
+    copy {
+        from "build"
+        into '../extranet-webapp/src/main/resources/public'
+    }
+}

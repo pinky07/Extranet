@@ -1,0 +1,4 @@
+rootProject.name = 'extranet-app'
+
+include ':extranet-webapp'
+include ':extranet-ui'
