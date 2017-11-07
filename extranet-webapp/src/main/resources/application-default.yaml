@@ -1,0 +1,13 @@
+server:
+  port: 8080
+  contextPath: /extranet-webapp
+
+spring.profiles.active: local,default
+
+spring:
+logging:
+  pattern:
+    console: "%msg%n"
+  level:
+    org.springframework.web: INFO
+    com.nepc.extranet.endpoint: INFO

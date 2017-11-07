@@ -1,0 +1,8 @@
+#-----------------------------------------------------------------------------------------------------------------------
+# General Configuration
+asset.manager.baseHref: /extranet-webapp
+asset.manager.pulse.threshold: 5
+asset.manager.pulse.maxAge: 90000
+
+security.basic.enabled: false
+management.security.enabled: false
